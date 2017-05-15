@@ -30,7 +30,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function dashboard() {
 			if ( $this->user_security->is_user_logged_in() == true ) {
 				$this->load->helper(array('html', 'form', 'url'));
-				$this->load->view('admin_dashboard');
+
+				// load datas to export
+				// Load database reference
+				$this->load->database();
+
+				$this->load->model('Home_model', 'HM');
+				if ( $this->HM->get_items() != NULL ) {
+					$data['item_datas'] = $this->HM->get_items();
+					$this->load->view('admin_dashboard', $data);
+				}
+
 			} else {
 				redirect('/Home_controller/');
 			}

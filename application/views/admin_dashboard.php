@@ -48,7 +48,48 @@ $matBase = base_url('materializecss');
 
 			</div>
 
-			<div class="col m8 l8"></div>
+			<div class="col m8 l8">
+				
+				<div class="row">
+					
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>CODE</th>
+								<th>NAME</th>
+								<th>DESCRIPTION</th>
+								<th>DATE</th>
+							</tr>
+						</thead>
+						<tbody>
+	
+					<?php
+						foreach ($item_datas as $row) {
+					?>
+							<tr>
+								<td><?php echo $row['id'] ?></td>
+								<td><?php echo $row['code'] ?></td>
+								<td><?php echo $row['name'] ?></td>
+								<td><?php echo $row['description'] ?></td>
+								<td><?php echo $row['date'] ?></td>
+							</tr>
+					<?php		
+						}							
+					?>
+
+						</tbody>
+					</table>
+
+				</div> <!-- End Row -->
+
+				<!-- Row Actions Buttons -->
+				<div class="row">
+					<a href="<?php echo site_url( 'Export/excel/' ); ?>" class="btn">Export Excel</a>
+				</div>
+				<!-- End of action button rows -->
+
+			</div>
 
 		</div>
 

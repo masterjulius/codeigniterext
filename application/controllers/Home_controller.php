@@ -46,6 +46,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
+		// user roles
+		public function user_roles() {
+
+			if ( $this->user_security->is_user_logged_in() == true ) {
+
+				
+				
+			} else {
+				redirect('/Home_controller/');
+			}
+
+		}
+
 		// sign out
 		public function sign_out() {
 

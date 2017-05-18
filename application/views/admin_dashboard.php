@@ -37,8 +37,8 @@ $matBase = base_url('materializecss');
 						
 						<ul class="">
 							<li><a href="<?php echo site_url( 'Home_controller' ); ?>">Add</a></li>
-							<li><a href="">asdd</a></li>
-							<li><a href="">asdd</a></li>
+							<li><a href="">Users</a></li>
+							<li><a href="<?php echo site_url( 'Home_controller/user_roles' ) ?>">User Roles</a></li>
 							<li><a href="<?php echo site_url( 'Home_controller/sign_out' ); ?>">Sign Out</a></li>
 						</ul>
 
@@ -68,11 +68,11 @@ $matBase = base_url('materializecss');
 						foreach ($item_datas as $row) {
 					?>
 							<tr>
-								<td><?php echo $row['id'] ?></td>
-								<td><?php echo $row['code'] ?></td>
-								<td><?php echo $row['name'] ?></td>
-								<td><?php echo $row['description'] ?></td>
-								<td><?php echo $row['date'] ?></td>
+								<td><?php echo $row->id ?></td>
+								<td><?php echo $row->code ?></td>
+								<td><?php echo $row->name ?></td>
+								<td><?php echo $row->description ?></td>
+								<td><?php echo $row->date ?></td>
 							</tr>
 					<?php		
 						}							

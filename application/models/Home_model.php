@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$retValue = array();
 				$query = $this->db->get('tbl_items');
 				foreach ($query->result() as $row) {
-					$dataArray = array(
+					$dataArray = (object) array(
 						'id' 			=> $row->item_id,
 						'code' 			=> $row->item_code,
 						'name'			=> $row->item_name,
@@ -22,7 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						'date'			=> $row->item_date_created
 					);
 					array_push($retValue, $dataArray);
-
 				}
 			}
 

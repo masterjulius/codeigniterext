@@ -1,17 +1,18 @@
 .admin-dashboard {
 
-	.admin-sidebar {
-		padding: 0;
+	.dashboard-sidebar {
 
-		nav {
+		background-color: #37474f;
 
-			&.nav-sidebar-profile {
-				background-color: #263238;
+		li {
+
+			a {
+				color: #fff;
+				i {
+					color: #fff;
+				}
 			}
-			&.nav-sidebar-menu {
-				background-color: #37474f;
-			}
-			
+
 		}
 
 	}

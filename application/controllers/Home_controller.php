@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function __construct() {
 			parent::__construct();
-			$this->load->library('user_security');
+			$this->load->library( array('user_security', 'user_actions') );
 
 			// load materializecss
 			$this->load->helper('url');
@@ -37,8 +37,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				$this->load->model('Home_model', 'HM');
 				if ( $this->HM->get_items() != NULL ) {
+
+					/**
+					 * Comment this line for testing purposes.
+					 */
 					$data['item_datas'] = $this->HM->get_items();
 					$this->load->view('admin_dashboard', $data);
+
+					// $asd = $this->user_actions->_register_admin_page( 'my_view', 'myView' );
+					// echo "<pre>";
+					// 	print_r($asd);
+					// echo "</pre>";
+
 				}
 
 			} else {

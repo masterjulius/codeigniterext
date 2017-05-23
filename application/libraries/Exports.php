@@ -23,7 +23,7 @@ class Exports {
 
 	public function excel( $data, $attributes = array(
 			'sheetIndex' 			=> 0,
-			'sheetTitle'			=> 'Sheet1',
+			'sheetTitle'			=> 'My First Sheet',
 			'headerColumns'			=> array(),
 			'headerColumnStart'		=> 'A',
 			'headerRowStart'		=> 1,

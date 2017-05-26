@@ -79,11 +79,11 @@ $matBase = base_url('materializecss');
 
 
 			<div class="row">
-				<input-field class="col s12">
+				<div class="input-field col s12">
 		<?php
 					echo form_submit('submit','Sign In', array('class' => 'btn'));
 		?>			
-				</input-field>
+				</div>
 			</div>
 
 

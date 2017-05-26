@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $matBase = base_url('materializecss');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,6 @@ $matBase = base_url('materializecss');
 ?>
 	<title>&mdash; Dashboard</title>
 	<!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo $matBase; ?>/css/materialize.min.css" media="screen,projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $matBase; ?>/css/style.min.css" media="screen,projection" />
 </head>
@@ -35,9 +35,10 @@ $matBase = base_url('materializecss');
 		    	</li>
 		    	
 		    	<li><a class="subheader center">Actions</a></li>
-		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller' ); ?>"><i class="material-icons">note_add</i> Add</a></li>
-		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller/user_roles' ) ?>"><i class="material-icons">supervisor_account</i> User</a></li>
-		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller/sign_out' ); ?>"><i class="material-icons">vpn_key</i> Sign Out</a></li>
+		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller' ); ?>"> Add</a></li>
+		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller/user_roles' ) ?>"> Roles</a></li>
+		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller/user_roles' ) ?>"> User</a></li>
+		    	<li><a class="waves-effect" href="<?php echo site_url( 'Home_controller/sign_out' ); ?>"> Sign Out</a></li>
 
 		  	</ul>
 
@@ -84,8 +85,61 @@ $matBase = base_url('materializecss');
 
 					<!-- Row Actions Buttons -->
 					<div class="row">
+						<div class="col m12 l12">
+
 							<a href="<?php echo site_url( 'Export/excel/' ); ?>" class="btn">Export Excel</a>
-							<?php echo "<h1>".$_ci_view."</h1>"; ?>
+							<?php echo "<h5>".$_ci_view."</h5>"; ?>
+
+							<?php
+								
+								echo "<pre>";
+									print_r($https);
+								echo "</pre>";
+							?>
+
+							<hr/>
+
+							<h6>
+							<?php
+								$str = '{"username" : "admin", "password" : "$6$rounds=5000$@eVrY49(`a sMV6|$yVP8.1jAIUswya9cCVmenu3f80YM8crxXM3M4in7hCvCrMW52crho8J1Vnt6DVSC3NUyrN2BW54viz9lUnlLE0", "by" : "0", "arr" : {"1" : "one", "2" : "two"} }';
+								echo 'Encrypted json: ' . $enc = $this->encryption->encrypt( $str );
+								echo "<h6>Char count: " . strlen($enc) . "</h6>";
+								echo '<hr/>';
+								echo $decrypted = 'Decrypted: ' . $this->encryption->decrypt( $enc );
+								$json = json_decode( $decrypted );
+								echo '<pre>';
+									print_r( $json );
+								echo '</pre>';
+							?></h6>
+
+
+
+							<?php
+								// ---------------------------------------------------------------
+								$caps = '{
+									"role_name" : "Rock and Rollo",
+									"pages" : {
+										"page_one" : {
+											"create" : "1",
+											"edit" : "1",
+											"delete" : "1",
+											"save" : "1",
+											"read" : "1",
+											"edit_others" : "1", 
+											"delete_others" : "1" 
+										}
+									},
+									"description" : "This is a sample description of this role."
+								}';
+								$llmm = json_decode( $caps );
+								echo '<pre>';
+									print_r( $llmm );
+								echo '</pre>';
+							?>
+
+
+						</div>
+
 					</div>
 					<!-- End of action button rows -->
 

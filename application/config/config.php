@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'PPDO1234';
+$config['encryption_key'] = 'v;q96?|P5tb{O.}';
 
 /*
 |--------------------------------------------------------------------------
@@ -521,3 +521,16 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+/*
+|--------------------------------------------------------------------------
+| Custom variables
+|--------------------------------------------------------------------------
+|
+| 
+|
+| Comma-separated:	'10.0.1.200,192.168.5.0/24'
+| Array:		array('10.0.1.200', '192.168.5.0/24')
+*/
+$config['salt_str'] = '@eVrY49(`a sMV6|5%9f;|N]?G5IL:%I,^8%?rwcMmxI`qhj>].IgToU&C)~dLu[';

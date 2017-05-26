@@ -27,10 +27,39 @@ class User_security {
 
     }
 
-    public function is_user_logged_in( $param = 'user_id' ) {
+    public function register_session_data( $data, $prefix = 'CI_extended_sess_' ) {
+
+        if ( !empty( $data ) ) {
+
+            if ( is_array( $data ) ) {
+
+                foreach ($data as $key => $value) {
+                
+                    $data[ $prefix . $key ] = $value;
+                    unset( $data[ $key ] );
+
+                }
+
+            }
+
+            $this->CI->session->set_userdata( $data );
+
+        } else {
+            die( 'Parameters in session datas must be array!' );
+        }
+
+    }
+
+    public function is_user_logged_in( $prefix = 'CI_extended_sess_', $session_name = 'user_id' ) {
 
     	$retValue = false;
-    	if ( $this->CI->session->userdata( $param ) ) {
+        if ( !empty( $prefix ) || $prefix !== '' || $prefix !== NULL ) {
+
+            $session_name = $prefix . $session_name;
+
+        }
+
+    	if ( $this->CI->session->userdata( $session_name ) ) {
 
     		return true;
 
@@ -39,15 +68,15 @@ class User_security {
 
     }
 
-    public function set_session( $param = NULL ) {
+    public function unset_session_data( $prefix = 'CI_extended_sess_', $session_name = 'user_id' ) {
 
-		$this->CI->session->set_userdata($param);
+        if ( !empty( $prefix ) || $prefix !== '' || $prefix !== NULL ) {
 
-    }
+            $session_name = $prefix . $session_name;
 
-    public function unset_session( $param = 'user_id' ) {
+        }
 
-    	$this->CI->session->unset_userdata($param);
+    	$this->CI->session->unset_userdata( $session_name );
 
     }
 
